@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chatbot for water cleaning system awareness| Ctrl Freaks</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="script.js" defer></script>
+
+    <title>Chatbot with Speech Synthesis</title>
+    <title>Chatbot with Avatar and TTS</title>
+    <title>Chatbot with Mascot</title>
+<link rel="stylesheet" type="text/css" href="chatbotStyle.css">
+
+    <style>
+      
+   
+
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            display: flex;
+            margin: 5px;
+        }
+
+        .mascot {
+          /* Style the mascot as needed (position, size, etc.) */
+          width: 100px;
+      }
+
+      .user-message {
+          margin-left: 10px; /* Adjust the margin to make space for the mascot */
+      }
+
+  </style>
+
+    
+
+
+  </head>
+  <body>
+    <h1>Hi there! My name is freak bot. 
+     I can [send you updates / connect you with a manager / help you navigate through the website / explain our new offers] via chat.
+    </h1>
+    <button class="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+      <header>
+        <h2>Chatbot</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+      </header>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <p>Hi there 👋<br>How can I help you today?</p>
+        </li>
+      </ul>
+      <div class="chat-input">
+        <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+        <span id="send-btn" class="material-symbols-rounded">send</span>
+
+        <div class="chat">
+          <div class="chat-box" id="chat-box">
+
+          </div>
+          <div class="input-box">
+              <input type="text" id="user-input" placeholder="Type your message..." />
+              <button id="speak-button">Speak</button>
+              <div class="chat-container">
+                <div class="message">
+        
+                        <div class="mascot">
+                            <img src="/Users/akshitarora/Desktop/istockphoto-1013495462-1024x1024.jpg" alt="Mascot">
+                        </div>
+                        <div class="user-message">Hello, how can I assist you?</div>
+            
+            <div class="user-message">Hello, how can I assist you?</div>
+
+             
+
+
+
+        
+  
+      </div>
+    </div>
+    <script src="chatbot.js"></script>
+
+    <script>
+      const chatContainer = document.querySelector('.chat-container');
+
+      function addBotMessage(message) {
+          const messageDiv = document.createElement('div');
+          messageDiv.classList.add('message');
+
+          const botAvatar = document.createElement('div');
+          botAvatar.classList.add('bot-avatar');
+          messageDiv.appendChild(botAvatar);
+
+          const botMessage = document.createElement('div');
+          botMessage.classList.add('user-message');
+          botMessage.textContent = message;
+          messageDiv.appendChild(botMessage);
+
+          chatContainer.appendChild(messageDiv);
+
+
+          speakMessage(message);
+      }
+
+      function speakMessage(message) {
+          const utterance = new SpeechSynthesisUtterance(message);
+          window.speechSynthesis.speak(utterance);
+      }
+
+      function handleUserInput() {
+
+          const userInput = 'What are the cleaning systems we are using for water cleanliness';
+
+          const messageDiv = document.createElement('div');
+          messageDiv.classList.add('message');
+
+          const userAvatar = document.createElement('div');
+          userAvatar.classList.add('user-avatar');
+          messageDiv.appendChild(userAvatar);
+
+          const userMessage = document.createElement('div');
+          userMessage.classList.add('user-message');
+          userMessage.textContent = userInput;
+          messageDiv.appendChild(userMessage);
+
+          chatContainer.appendChild(messageDiv);
+
+          addBotMessage("Coagulation is often the first step in water treatment. During coagulation, chemicals with a positive charge are added to the water. The positive charge neutralizes the negative charge of dirt and other dissolved particles in the water. ");
+          addBotMessage("Flocculation follows the coagulation step. Flocculation is the gentle mixing of the water to form larger, heavier particles called flocs. Often, water treatment plants will add additional chemicals during this step to help the flocs form.");
+          addBotMessage("Sedimentation is one of the steps water treatment plants use to separate out solids from the water. During sedimentation, flocs settle to the bottom of the water because they are heavier than water.");
+          addBotMessage("Once the flocs have settled to the bottom of the water, the clear water on top is filtered to separate additional solids from the water. During filtration, the clear water passes through filters that have different pore sizes and are made of different materials (such as sand, gravel, and charcoal). These filters remove dissolved particles and germs, such as dust, chemicals, parasites, bacteria, and viruses. Activated carbon filters also remove any bad odors.");
+
+      }
+
+
+      handleUserInput();
+  </script>
+
+
+  </body>
+
+</html>
